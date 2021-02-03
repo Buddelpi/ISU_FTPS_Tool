@@ -6,7 +6,7 @@ Created on Oct 5, 2019
 
 from ftplib import FTP, FTP_TLS
 import os
-import ConfigParser
+import configparser
 import argparse
 import logging
 import sys
@@ -15,8 +15,8 @@ import sys
 
 ########### MODIFY ########################
  
-USER = 'external'
-PASS = 'Titkos123'
+USER = ''
+PASS = ''
  
 ########### MODIFY IF YOU WANT ############
  
@@ -34,7 +34,7 @@ LOG_FILE = 'ISU_FTPS_tool.log'
 #############################################################
  
 logging.basicConfig(format='%(asctime)s, %(levelname)s: %(message)s', datefmt='%Y/%m/%d %H:%M:%S', filename=LOG_FILE, level=logging.INFO) 
-Config = ConfigParser.ConfigParser() 
+Config = configparser.ConfigParser() 
 parser = argparse.ArgumentParser()
 parser.add_argument('-p', type=str, default='', help="Defines the postfix, when a different ini file is used")
 
@@ -52,14 +52,16 @@ def connect_ftps():
     print("Step 1")
     if SECURE_CONN == '1':
         ftps = FTP_TLS(SERVER)
+        print("Secure connection")
     else:
         ftps = FTP(SERVER)
+        print("Unsecure connection")
     print("Step 2")
     ftps.set_debuglevel(2)
     print("Step 3")
     ftps.set_pasv(False)
     print("Step 4")
-    ftps.connect(port=PORT, timeout=80)
+    ftps.connect(port=int(PORT), timeout=160)
     print("Step 5")
     ftps.login(USER, PASS)
     print("Step 6")
@@ -67,7 +69,11 @@ def connect_ftps():
     print("Step 7")
     ftps.set_pasv(True)
     print("Step 8")
-    ftps.prot_p()
+    #Set up the secure connection only in FTPS mode
+    if SECURE_CONN == '1':
+        ftps.prot_p()
+    else:
+        pass
     #ftps.ccc()
     return ftps
 
