@@ -92,3 +92,4 @@
 2021/02/03 10:44:06, ERROR: Wrong argument. Usage: a) No argument, thus default ini is used; b) -p [Postfix], where Postfix can be a string (eg.: -p spec --> program will use ISU_FTPS_tool_conf_spec.ini)
 2021/02/03 10:47:00, ERROR: Wrong argument. Usage: a) No argument, thus default ini is used; b) -p [Postfix], where Postfix can be a string (eg.: -p spec --> program will use ISU_FTPS_tool_conf_spec.ini)
 2021/02/03 10:48:04, ERROR: Wrong argument. Usage: a) No argument, thus default ini is used; b) -p [Postfix], where Postfix can be a string (eg.: -p spec --> program will use ISU_FTPS_tool_conf_spec.ini)
+2021/02/03 17:18:03, ERROR: Problem connecting to server: ftp.example.hu
