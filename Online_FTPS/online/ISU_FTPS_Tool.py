@@ -20,11 +20,11 @@ PASS = 'Titkos123'
  
 ########### MODIFY IF YOU WANT ############
  
-SERVER = 'server.hunskate.hu'
+SERVER = 'server.example.hu'
 PORT = 21
 BINARY_STORE = True # if False then line store (not valid for binary files (videos, music, photos...))
-TARGET_DIR = '/mukorcsolya/2019_2020/Tesztverseny/eredmenyek/' 
-COPY_DIR = '/Users/delpi/Desktop/test'
+TARGET_DIR = '/remote/stuff' 
+COPY_DIR = '/Users/YourUser/Stuff'
 SECURE_CONN = '1'
 
 ########### DO NOT MODIFY #################
